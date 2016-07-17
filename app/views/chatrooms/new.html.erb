@@ -6,7 +6,7 @@
         <%= form_for @chatroom do |f| %>
           <div class="input-group">
             <span class="input-group-addon">topic:</span>
-            <%= f.text_field :topic, class: "form-control"%>
+            <%= f.text_field :topic, class: "form-control", autofocus: true %>
           </div>
           <%= f.submit class: "btn btn-primary", id: "create-chatroom" %>
         <% end %>
@@ -15,4 +15,3 @@
 
     <%= render partial: 'layouts/flash_errors'%>
 </div>
-

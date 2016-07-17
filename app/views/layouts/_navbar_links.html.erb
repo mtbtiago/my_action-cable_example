@@ -4,14 +4,17 @@
     <%= link_to "new chatroom", new_chatroom_path%>
    </li>
   <% end %>
-  
+
   <li>
     <%= link_to "chatrooms", chatrooms_path %>
-  </li> 
+  </li>
 </ul>
 
 <ul class="nav navbar-nav navbar-right">
   <% if current_user %>
+    <li>
+      <button id="btn_test" class="btn btn-default navbar-btn">Speak to MessagesChannel</button>
+    </li>
     <li>
       <%= link_to "Log Out", logout_path, method: "delete" %>
     </li>

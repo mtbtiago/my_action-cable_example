@@ -1,9 +1,10 @@
 #!/usr/bin/env ruby
 
+# https://github.com/NullVoxPopuli/action_cable_client
 require 'action_cable_client'
 
 EventMachine.run do
-  uri = 'ws://localhost:3000/cable/'
+  uri = 'ws://192.168.1.236:3000/cable/'
   # client = ActionCableClient.new(uri, 'RoomChannel')
   client = ActionCableClient.new(uri, 'MessagesChannel')
   # the connected callback is required, as it triggers
@@ -12,11 +13,10 @@ EventMachine.run do
   client.connected { puts 'successfully connected.' }
 
   # called whenever a message is received from the server
-  client.received do |message|
-    puts message
-    client.perform('speak', message: 'hello from amc', user: 'gato')
+  client.received do |data|
+    message = data['message']
+    puts "Received message: #{message['message']} from user #{message['user']}"
+    # execute a program (.exe) to perform desired action with received data
+    # exec('dir c:\\')
   end
-
-  # adds to a queue that is purged upon receiving of
-  # a ping from the server
 end

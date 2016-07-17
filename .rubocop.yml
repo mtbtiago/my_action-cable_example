@@ -1,0 +1,43 @@
+AllCops:
+  # TargetRubyVersion: 2.2
+  Include:
+    - Rakefile
+    - config.ru
+  Exclude:
+    - db/**/*
+    - lib/templates/rails/**/*.rb
+    - bin/*
+    - views/**/*
+    - config/environments/*.rb
+
+Metrics/ModuleLength:
+  Max: 350
+
+# Configuration parameters: AllowURI, URISchemes.
+Metrics/LineLength:
+  Max: 140
+
+Metrics/ClassLength:
+  Max: 350
+
+# Configuration parameters: CountComments.
+Metrics/MethodLength:
+  Max: 40
+
+# Missing top-level class documentation comment
+Style/Documentation:
+  Enabled: false
+
+# Assignment Branch Condition size for %s is too high. [%.4g/%.4g]
+Metrics/AbcSize:
+  Max: 52
+
+Metrics/CyclomaticComplexity:
+  Max: 12
+
+Metrics/PerceivedComplexity:
+  Max: 12
+
+Rails/HasAndBelongsToMany:
+  Exclude:
+    - 'app/models/contact.rb'

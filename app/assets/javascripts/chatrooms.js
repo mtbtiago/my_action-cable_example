@@ -1,5 +1,8 @@
 $(document).on('turbolinks:load', function() {
   submitNewMessage();
+  $('#btn_test').on('click', function() {
+    App.messages.perform('speak', {a: 'a value', b: 'b value'});
+  });
 });
 
 function submitNewMessage(){
